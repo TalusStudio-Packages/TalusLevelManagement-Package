@@ -1,7 +1,7 @@
 {
   "name": "com.talus.taluslevelmanagement",
   "version": "1.0.0",
-  "displayName": "Talus Level Management",
+  "displayName": "TalusLevelManagement",
   "dependencies": {
     "com.unity.addressables": ""
   },
