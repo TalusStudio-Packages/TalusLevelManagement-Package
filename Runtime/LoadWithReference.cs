@@ -17,7 +17,7 @@ namespace TalusLevelManagement
 
         protected override void Awake()
         {
-            this.Assert(Reference.IsValid(), "Asset reference is not valid!");
+            this.Assert(Reference.RuntimeKeyIsValid(), "Asset reference is not valid!");
         }
 
         protected override void Start()
