@@ -2,7 +2,9 @@
   "name": "com.talus.taluslevelmanagement",
   "version": "1.0.0",
   "displayName": "Talus Level Management",
-  "description": "",
+  "dependencies": {
+    "com.unity.addressables": ""
+  },
   "unity": "2021.3",
   "unityRelease": "5f1",
   "keywords": [
