@@ -13,7 +13,8 @@ namespace TalusLevelManagement
     public class LoadWithReference : BaseBehaviour
     {
         [LabelWidth(70)]
-        public AssetReferenceVariable Reference;
+        [AssetList(AssetNamePrefix = "Var_")]
+        [Required] public AssetReferenceVariable Reference;
 
         private AsyncOperationHandle<GameObject> _opHandle;
 
