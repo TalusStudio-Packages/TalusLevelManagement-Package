@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
 using TalusFramework.Behaviours.Interfaces;
@@ -14,6 +15,8 @@ namespace TalusLevelManagement
         [LabelWidth(70)]
         public AssetReferenceVariable Reference;
 
+        private AsyncOperationHandle<GameObject> _opHandle;
+
         protected override void Awake()
         {
             this.Assert(Reference.RuntimeValue.RuntimeKeyIsValid(), "Asset reference is not valid!");
@@ -21,24 +24,25 @@ namespace TalusLevelManagement
 
         protected override void Start()
         {
-            AsyncOperationHandle handle = Reference.RuntimeValue.LoadAssetAsync<GameObject>();
-            handle.Completed += HandleWhenComplete;
+            _opHandle = Addressables.LoadAssetAsync<GameObject>(Reference.RuntimeValue);
+            _opHandle.Completed += HandleWhenComplete;
         }
 
-        private void HandleWhenComplete(AsyncOperationHandle handle)
+        private void HandleWhenComplete(AsyncOperationHandle<GameObject> obj)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            if (obj.Status == AsyncOperationStatus.Succeeded)
             {
-                Instantiate(Reference.RuntimeValue.Asset, transform);
+                Instantiate(obj.Result, transform);
                 return;
             }
 
+            Addressables.Release(obj);
             this.Error($"AssetReference {Reference.RuntimeValue.RuntimeKey} failed to load!");
         }
 
         private void OnDestroy()
         {
-            Reference.RuntimeValue.ReleaseAsset();
+            Addressables.Release(_opHandle);
         }
     }
 }
