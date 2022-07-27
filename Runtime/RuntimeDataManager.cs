@@ -30,7 +30,7 @@ namespace TalusLevelManagement
         [FoldoutGroup("Level Management"), LabelWidth(100)]
         [Required] public AssetReferenceVariable NextLevel;
 
-        [FoldoutGroup("Endless Level Settings")]
+        [FoldoutGroup("Level Management")]
         [LabelWidth(100), Required] public StringVariable LevelText;
 
         public override void Initialize()
