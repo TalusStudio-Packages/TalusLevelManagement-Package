@@ -2,13 +2,15 @@
     "name": "TalusLevelManagement",
     "rootNamespace": "",
     "references": [
+        "Unity.Addressables",
+        "Unity.ResourceManager",
+        "TalusFramework"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
-    "precompiledReferences": [
-    ],
+    "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
