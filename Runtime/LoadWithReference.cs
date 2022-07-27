@@ -18,13 +18,10 @@ namespace TalusLevelManagement
 
         private AsyncOperationHandle<GameObject> _opHandle;
 
-        protected override void Awake()
-        {
-            this.Assert(Reference.RuntimeValue.RuntimeKeyIsValid(), "Asset reference is not valid!");
-        }
-
         protected override void Start()
         {
+            this.Assert(Reference.RuntimeValue.RuntimeKeyIsValid(), "Asset reference is not valid!");
+
             _opHandle = Addressables.LoadAssetAsync<GameObject>(Reference.RuntimeValue);
             _opHandle.Completed += HandleWhenComplete;
         }
