@@ -22,12 +22,12 @@ namespace TalusLevelManagement
         protected override void Start()
         {
             AsyncOperationHandle handle = Reference.RuntimeValue.LoadAssetAsync<GameObject>();
-            handle.Completed += Handle_Completed;
+            handle.Completed += HandleWhenComplete;
         }
 
-        private void Handle_Completed(AsyncOperationHandle obj)
+        private void HandleWhenComplete(AsyncOperationHandle handle)
         {
-            if (obj.Status == AsyncOperationStatus.Succeeded)
+            if (handle.Status == AsyncOperationStatus.Succeeded)
             {
                 Instantiate(Reference.RuntimeValue.Asset, transform);
                 return;
