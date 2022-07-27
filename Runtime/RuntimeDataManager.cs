@@ -24,8 +24,13 @@ namespace TalusLevelManagement
         [FoldoutGroup("Base"), Required] public StringConstant DisabledLevelCountPref;
         [FoldoutGroup("Base"), Required] public StringConstant DisabledLevelPref;
 
-        [LabelWidth(100), Required] public AssetReferenceCollection LevelCollection;
-        [LabelWidth(100), Required] public IntVariable NextLevel;
+        [FoldoutGroup("Level Management"), LabelWidth(100)]
+        [Required] public AssetReferenceCollection LevelCollection;
+
+        [FoldoutGroup("Level Management"), LabelWidth(100)]
+        [Required] public AssetReferenceVariable NextLevel;
+
+        [FoldoutGroup("Endless Level Settings")]
         [LabelWidth(100), Required] public StringVariable LevelText;
 
         public override void Initialize()
@@ -60,7 +65,7 @@ namespace TalusLevelManagement
             this.Assert(LevelText != null, "Invalid Reference!", typeof(StringVariable), null);
 
             LevelText.SetValue("LEVEL " + (CompletedLevelCount + 1));
-            NextLevel.SetValue(Mathf.Abs(CompletedLevelCount - DisabledLevelCount) % LevelCollection.Count);
+            NextLevel.SetValue(LevelCollection[Mathf.Abs(CompletedLevelCount - DisabledLevelCount) % LevelCollection.Count]);
         }
 
         private int CompletedLevelCount => PlayerPrefs.GetInt(LevelCyclePref.RuntimeValue);
