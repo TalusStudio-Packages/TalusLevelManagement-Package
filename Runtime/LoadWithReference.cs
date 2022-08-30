@@ -27,7 +27,7 @@ namespace TalusLevelManagement
 
             Instantiate(opHandle.Result);
 
-            Addressables.Release(opHandle);
+            // Addressables.Release(opHandle);
         }
     }
 }
