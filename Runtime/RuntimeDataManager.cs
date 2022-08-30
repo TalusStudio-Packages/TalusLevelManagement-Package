@@ -25,10 +25,10 @@ namespace TalusLevelManagement
         [FoldoutGroup("Base"), Required] public StringConstant DisabledLevelPref;
 
         [FoldoutGroup("Level Management"), LabelWidth(100)]
-        [Required] public AssetReferenceCollection LevelCollection;
+        [Required] public GameObjectCollection LevelCollection;
 
         [FoldoutGroup("Level Management"), LabelWidth(100)]
-        [Required] public AssetReferenceVariable NextLevel;
+        [Required] public GameObjectVariable NextLevel;
 
         [FoldoutGroup("Level Management")]
         [LabelWidth(100), Required] public StringVariable LevelText;
