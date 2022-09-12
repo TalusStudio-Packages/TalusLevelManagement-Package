@@ -25,6 +25,8 @@ namespace TalusLevelManagement
         [LabelWidth(100)]
         [Required] public GameObjectVariable NextLevel;
 
+        private int CompletedLevelCount => PlayerPrefs.GetInt(LevelCyclePref.RuntimeValue);
+
         public override void Initialize()
         {
             this.Assert(LevelCyclePref != null, "Invalid Reference!", typeof(StringConstant), null);
@@ -44,7 +46,5 @@ namespace TalusLevelManagement
         {
             NextLevel.SetValue(LevelCollection[CompletedLevelCount % LevelCollection.Count]);
         }
-
-        private int CompletedLevelCount => PlayerPrefs.GetInt(LevelCyclePref.RuntimeValue);
     }
 }
