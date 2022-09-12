@@ -2,8 +2,6 @@
     "name": "TalusLevelManagement",
     "rootNamespace": "",
     "references": [
-        "Unity.Addressables",
-        "Unity.ResourceManager",
         "TalusFramework"
     ],
     "includePlatforms": [],
