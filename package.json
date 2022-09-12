@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "displayName": "TalusLevelManagement",
   "dependencies": {
-    "com.unity.addressables": "1.19.19",
     "com.talus.talusframework": "3.0.0"
   },
   "unity": "2021.3",
