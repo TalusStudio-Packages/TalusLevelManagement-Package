@@ -13,7 +13,7 @@ namespace TalusLevelManagement
     /// <summary>
     ///     RuntimeData Manager sets next level
     /// </summary>
-    [CreateAssetMenu(fileName = "New Runtime Manager", menuName = "_OTHERS/Managers/Runtime Manager", order = 1)]
+    [CreateAssetMenu(fileName = "New Runtime Manager", menuName = "Talus/Framework/Managers/Runtime Manager", order = 1)]
     public class RuntimeDataManager : BaseManager
     {
         [LabelWidth(100)]

@@ -1,6 +1,6 @@
 {
   "name": "com.talus.taluslevelmanagement",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "TalusLevelManagement",
   "dependencies": {
     "com.talus.talusframework": "3.1.0"
